@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoLearning", "UmbracoLearning.csproj", "{CBB32959-90D1-43E0-AFF7-8022AA086A5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBB32959-90D1-43E0-AFF7-8022AA086A5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB32959-90D1-43E0-AFF7-8022AA086A5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB32959-90D1-43E0-AFF7-8022AA086A5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB32959-90D1-43E0-AFF7-8022AA086A5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
