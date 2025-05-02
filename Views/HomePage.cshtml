@@ -1,10 +1,49 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
 @inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using System.Linq
 @{
 	Layout = null;
 }
+@{
+	var backgroundColor = Model.Value<string>("colorPicker");
+	if (backgroundColor != null)
+	{
+		<body style="background-color: @backgroundColor"></body>
+	}
+}
+
+<h1>
+	@Model.Value(
+		"mainHeader",
+		fallback: Fallback.ToDefaultValue,
+		defaultValue: "this is where the main header text goes")
+</h1>
+
+<h3>
+	@Model.Value(
+		"subHeader",
+		fallback: Fallback.ToDefaultValue,
+		defaultValue: "this is where the sub header text goes")
+</h3>
 
 
-@Model.Value("subHeaderText")
+<div>@(Model.Value<DateTime>("dateAndTime").ToString("dd-MM-yyyy HH:mm:ss"))</div>
 
-<h1>@Model.Value("mainHeaderText")</h1>
+<div>
+	@{
+		if (Model.HasValue("testBox"))
+		{
+			<ul>
+				@foreach (var item in Model.Value<IEnumerable<string>>("testBox"))
+				{
+					<li>@item</li>
+				}
+			</ul>
+		}
+	}
+</div>
+<div>@(Model.Value<IEnumerable<string>>("testBox")?.FirstOrDefault())</div>
+
+<div>@Model.Value("bodyText")</div>
+
+<p>@Model.Value("footerText")</p>
