@@ -16,8 +16,8 @@ using Umbraco.Cms.Infrastructure.ModelsBuilder;
 using Umbraco.Cms.Core;
 using Umbraco.Extensions;
 
-[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "d60aa9ccf7834a5796fd2e0e2a8944e1f2aa51db")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.8")]
+[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "bc2def697ea85dee78bb7fa39c86447c347b2a6b")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.9")]
 
 namespace Umbraco.Cms.Web.Common.PublishedModels
 {
@@ -554,6 +554,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		}
 
 		// properties
+
+		///<summary>
+		/// Blog Body
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("blogBody")]
+		public virtual global::Umbraco.Cms.Core.Strings.IHtmlEncodedString BlogBody => this.Value<global::Umbraco.Cms.Core.Strings.IHtmlEncodedString>(_publishedValueFallback, "blogBody");
+
+		///<summary>
+		/// Blog Title: This will be the title of the blog
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("blogTitle")]
+		public virtual string BlogTitle => this.Value<string>(_publishedValueFallback, "blogTitle");
 
 		///<summary>
 		/// Image description: the description of the image
