@@ -1,6 +1,8 @@
 ﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
-@using System.Linq
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
+@using System.Linq;
+@using System.IO;
+@using Umbraco.Cms.Core.Models;
 @{
 	Layout = null;
 }
@@ -44,6 +46,29 @@
 </div>
 <div>@(Model.Value<IEnumerable<string>>("testBox")?.FirstOrDefault())</div>
 
-<div>@Model.Value("bodyText")</div>
+<div style="display: flex; align-items: center;">
+	<div style="margin-right: 4px">
+		@Model.Value("bodyText")
+	</div>
+	<div>
+		@{
+			var myImages = Model.Value<IEnumerable<MediaWithCrops>>("image1");
+			if (myImages != null)
+			{
+				foreach (var item in myImages)
+				{
+					<img src="@item.MediaUrl()" style="width: 200px" alt=""/>
+				}
+			}
+		}
+	</div>
+</div>
+<div>
+	@if (Model.HasValue("fileUploader"))
+	{
+		var picture = Model.Value<string>("fileUploader");
+		<a href="@picture">@System.IO.Path.GetFileName(picture)</a>
+	}
+</div>
 
 <p>@Model.Value("footerText")</p>

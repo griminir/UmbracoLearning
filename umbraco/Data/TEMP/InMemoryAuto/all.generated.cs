@@ -5,8 +5,8 @@ using  Umbraco.Cms.Core.PublishedCache;
 using  Umbraco.Cms.Infrastructure.ModelsBuilder;
 using  Umbraco.Cms.Core;
 using  Umbraco.Extensions;
-[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "1ca3bad9c5c41c426adabe37ff04dbc47b4f3246")]
-[assembly:System.Reflection.AssemblyVersion("0.0.0.17")]
+[assembly:ModelsBuilderAssembly(IsInMemory = true, SourceHash = "145c5a95e759157cd236231ef43f819968f5a352")]
+[assembly:System.Reflection.AssemblyVersion("0.0.0.4")]
 
 
 // FILE: models.generated.cs
@@ -109,7 +109,7 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 
 	/// <summary>Home Page</summary>
 	[PublishedModel("homePage")]
-	public partial class HomePage : PublishedContentModel, IBackgroundColor, ICheckBoxtest, IFooter, IHeader, ITestDateAndTime
+	public partial class HomePage : PublishedContentModel, IBackgroundColor, ICheckBoxtest, IFooter, IHeader, ITestDateAndTime, ITestFileUpload, ITestMedia
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -192,6 +192,22 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[ImplementPropertyType("dateAndTime")]
 		public virtual global::System.DateTime DateAndTime => global::Umbraco.Cms.Web.Common.PublishedModels.TestDateAndTime.GetDateAndTime(this, _publishedValueFallback);
+
+		///<summary>
+		/// File Uploader: upload your image file (png/webp)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("fileUploader")]
+		public virtual string FileUploader => global::Umbraco.Cms.Web.Common.PublishedModels.TestFileUpload.GetFileUploader(this, _publishedValueFallback);
+
+		///<summary>
+		/// Image1Field
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("image1")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Image1 => global::Umbraco.Cms.Web.Common.PublishedModels.TestMedia.GetImage1(this, _publishedValueFallback);
 	}
 
 	// Mixin Content Type with alias "footer"
@@ -409,6 +425,116 @@ namespace Umbraco.Cms.Web.Common.PublishedModels
 		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
 		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
 		public static string GetColorPicker(IBackgroundColor that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "colorPicker");
+	}
+
+	// Mixin Content Type with alias "testFileUpload"
+	/// <summary>Test FileUpload</summary>
+	public partial interface ITestFileUpload : IPublishedContent
+	{
+		/// <summary>File Uploader</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		string FileUploader { get; }
+	}
+
+	/// <summary>Test FileUpload</summary>
+	[PublishedModel("testFileUpload")]
+	public partial class TestFileUpload : PublishedContentModel, ITestFileUpload
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		public new const string ModelTypeAlias = "testFileUpload";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedContentTypeCache contentTypeCache)
+			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<TestFileUpload, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public TestFileUpload(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// File Uploader: upload your image file (png/webp)
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("fileUploader")]
+		public virtual string FileUploader => GetFileUploader(this, _publishedValueFallback);
+
+		/// <summary>Static getter for File Uploader</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static string GetFileUploader(ITestFileUpload that, IPublishedValueFallback publishedValueFallback) => that.Value<string>(publishedValueFallback, "fileUploader");
+	}
+
+	// Mixin Content Type with alias "testMedia"
+	/// <summary>Test media</summary>
+	public partial interface ITestMedia : IPublishedContent
+	{
+		/// <summary>Image1Field</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Image1 { get; }
+	}
+
+	/// <summary>Test media</summary>
+	[PublishedModel("testMedia")]
+	public partial class TestMedia : PublishedContentModel, ITestMedia
+	{
+		// helpers
+#pragma warning disable 0109 // new is redundant
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		public new const string ModelTypeAlias = "testMedia";
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public new static IPublishedContentType GetModelContentType(IPublishedContentTypeCache contentTypeCache)
+			=> PublishedModelUtility.GetModelContentType(contentTypeCache, ModelItemType, ModelTypeAlias);
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static IPublishedPropertyType GetModelPropertyType<TValue>(IPublishedContentTypeCache contentTypeCache, Expression<Func<TestMedia, TValue>> selector)
+			=> PublishedModelUtility.GetModelPropertyType(GetModelContentType(contentTypeCache), selector);
+#pragma warning restore 0109
+
+		private IPublishedValueFallback _publishedValueFallback;
+
+		// ctor
+		public TestMedia(IPublishedContent content, IPublishedValueFallback publishedValueFallback)
+			: base(content, publishedValueFallback)
+		{
+			_publishedValueFallback = publishedValueFallback;
+		}
+
+		// properties
+
+		///<summary>
+		/// Image1Field
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		[ImplementPropertyType("image1")]
+		public virtual global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> Image1 => GetImage1(this, _publishedValueFallback);
+
+		/// <summary>Static getter for Image1Field</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder.Embedded", "15.3.1+06a2a50")]
+		[return: global::System.Diagnostics.CodeAnalysis.MaybeNull]
+		public static global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops> GetImage1(ITestMedia that, IPublishedValueFallback publishedValueFallback) => that.Value<global::System.Collections.Generic.IEnumerable<global::Umbraco.Cms.Core.Models.MediaWithCrops>>(publishedValueFallback, "image1");
 	}
 
 	/// <summary>Folder</summary>
