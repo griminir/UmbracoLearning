@@ -1,19 +1,16 @@
-﻿@using Umbraco.Cms.Web.Common.PublishedModels;
-@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage;
-@using System.Linq;
-@using System.IO;
-@using Umbraco.Cms.Core.Models;
+﻿@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage;
 @{
 	Layout = null;
 }
-@{
-	var backgroundColor = Model.Value<string>("colorPicker");
-	if (backgroundColor != null)
-	{
-		<body style="background-color: @backgroundColor"></body>
-	}
-}
+<!DOCTYPE HTML>
 
+<html lang="en">
+<head>
+	<link rel="stylesheet" href="/css/main.css"/>
+</head>
+
+<body>
 <h1>
 	@Model.Value(
 		"mainHeader",
@@ -63,6 +60,7 @@
 		}
 	</div>
 </div>
+
 <div>
 	@if (Model.HasValue("fileUploader"))
 	{
@@ -72,3 +70,15 @@
 </div>
 
 <p>@Model.Value("footerText")</p>
+</body>
+</html>
+
+@* just an example *@
+@* @{ *@
+@* 	var backgroundColor = Model.Value<string>("colorPicker"); *@
+@* 	if (backgroundColor != null) *@
+@* 	{ *@
+@* 		<body style="background-color: @backgroundColor"></body> *@
+@* 	} *@
+@* } *@
+
