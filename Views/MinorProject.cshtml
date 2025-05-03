@@ -1,19 +1,41 @@
-﻿@inherits UmbracoViewPage
+﻿@using Umbraco.Cms.Core.Models
+@inherits UmbracoViewPage
 @{
 	Layout = null;
 }
 
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
+	<title>first little project</title>
 	<link rel="stylesheet" href="css/project1.css"/>
 </head>
 <body>
 <header>
-
+	<div class="container">
+		<div>
+			@{
+				var headerImage = Model.Value<MediaWithCrops>("pickImage");
+				if (headerImage != null && Model.Value<bool>("showImage"))
+				{
+					<img class="headerImage" src="@headerImage.MediaUrl()" alt="Header Image"/>
+					<div class="imageDescription">@Model.Value("imageDescription")</div>
+				}
+			}
+		</div>
+	</div>
 </header>
 
-<div>@Model.Value("imageDescription")</div>
+<main>
+	<div class="post">
+		<h2>@Model.Value("blogTitle")</h2>
+		<p>@Model.Value("blogBody")</p>
+	</div>
+</main>
+
+<footer>
+	copyrights &copy; 2025 project 1
+</footer>
 </body>
 </html>
 </>
